@@ -3,6 +3,7 @@
     package="com.example.akshiban.everything">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -25,7 +26,18 @@
             android:name=".hisaab.Hisaab"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".hisaab.WalletDetails" />
-        <activity android:name=".credit.Credit" android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".credit.Credit"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".notes.Semester"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".notes.DataView"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".notes.PdfView" />
+        <activity android:name=".notes.AdminUpload" />
+        <activity android:name=".locker.Locker" android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
     </application>
 
 </manifest>

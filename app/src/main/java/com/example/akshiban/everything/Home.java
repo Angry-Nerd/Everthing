@@ -18,6 +18,9 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.akshiban.everything.credit.Credit;
 import com.example.akshiban.everything.hisaab.Hisaab;
+import com.example.akshiban.everything.locker.Locker;
+import com.example.akshiban.everything.notes.AdminUpload;
+import com.example.akshiban.everything.notes.Semester;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -77,6 +80,15 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 return true;
             case R.id.nav_profile:
                 startActivity(new Intent(this, Credit.class));
+                return true;
+            case R.id.nav_chat:
+                startActivity(new Intent(this, Semester.class));
+                return true;
+            case R.id.nav_share:
+                startActivity(new Intent(this, AdminUpload.class));
+                return true;
+            case R.id.nav_send:
+                startActivity(new Intent(this, Locker.class));
                 return true;
             default:
                 return false;

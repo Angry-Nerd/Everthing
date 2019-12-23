@@ -106,7 +106,7 @@ public class WalletDetails extends AppCompatActivity {
                 transaction.setId(ds.getId());
                 walletTransactions.add(transaction);
             }
-            Collections.sort(walletTransactions, (a, b) -> (int) (-a.getDate() + b.getDate()));
+            Collections.sort(walletTransactions, (a, b) -> a.getTransactionCost() - b.getTransactionCost());
             adapter.notifyDataSetChanged();
             deleteWallet.setClickable(true);
             progressBar.setVisibility(View.GONE);

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="8dp"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/lockerItemImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nameOfLockerItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:text="Name"
+        app:layout_constraintStart_toEndOf="@+id/lockerItemImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lockerItemDateAdded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="Date"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/lockerItemImage"
+        app:layout_constraintTop_toBottomOf="@+id/nameOfLockerItem" />
+
+
+    <ImageButton
+        android:id="@+id/downloadLockerItem"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:paddingEnd="4dp"
+        android:background="#0fff"
+        android:src="@drawable/ic_file_download_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/deleteLockerItem"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#0fff"
+        android:paddingEnd="4dp"
+        android:src="@drawable/ic_delete_black_color_24dp"
+        app:layout_constraintEnd_toStartOf="@+id/downloadLockerItem"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>
