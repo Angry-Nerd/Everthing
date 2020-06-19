@@ -9,11 +9,13 @@
     tools:context=".hisaab.Hisaab">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/wallet_type_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        android:id="@+id/wallet_type_view"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/wallet_type" />
 
     <ProgressBar
         android:id="@+id/wallets_progress"
@@ -25,6 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
     <android.support.design.widget.FloatingActionButton
+        android:elevation="10dp"
         android:id="@+id/addWallet"
         android:src="@drawable/ic_add_black_24dp"
         android:layout_width="wrap_content"

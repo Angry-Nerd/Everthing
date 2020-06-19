@@ -97,13 +97,10 @@ public class Locker extends AppCompatActivity {
     private String getFileName(Uri content) {
         String result = null;
         if (content.getScheme().equals("content")) {
-            Cursor cursor = getContentResolver().query(content, null, null, null, null);
-            try {
+            try (Cursor cursor = getContentResolver().query(content, null, null, null, null)) {
                 if (cursor != null && cursor.moveToFirst()) {
                     result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
                 }
-            } finally {
-                cursor.close();
             }
         }
         if (result == null) {

@@ -51,7 +51,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+        if(AppUtils.checkInternetConnectivity(this)){
+            startActivityForResult(signInIntent, RC_SIGN_IN);
+        } else {
+            Toast.makeText(this, "Check your internet first", Toast.LENGTH_SHORT).show();
+        }
+        
     }
 
     @Override
@@ -85,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(GoogleSignInAccount user) {
         if(user != null) {
+            SharedPreferencesManager.getInstance(this).setLoginEmail(user.getEmail());
             startActivity(new Intent(this, Home.class));
             finish();
         }
@@ -94,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        GoogleSignInAccount currentUser = GoogleSignIn.getLastSignedInAccount(this);
-        updateUI(currentUser);
+        if (SharedPreferencesManager.getInstance(this).getLoginEmail() != null) {
+            startActivity(new Intent(this, Home.class));
+            finish();
+        }
     }
 }

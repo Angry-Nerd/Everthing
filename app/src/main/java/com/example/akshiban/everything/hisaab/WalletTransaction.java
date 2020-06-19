@@ -1,18 +1,34 @@
 package com.example.akshiban.everything.hisaab;
 
+
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 public class WalletTransaction {
+
+    private String walletId;
 
     private long date;
     private String description;
     private int openingBal, closingBal, transactionCost;
+
     private String id;
 
-    public WalletTransaction(long date, String description, int openingBal, int closingBal, int transactionCost) {
+    public String getWalletId() {
+        return walletId;
+    }
+
+    public void setWalletId(String walletId) {
+        this.walletId = walletId;
+    }
+
+    public WalletTransaction(long date, String description, int openingBal, int closingBal, int transactionCost, String walletId) {
         this.date = date;
         this.description = description;
         this.openingBal = openingBal;
         this.closingBal = closingBal;
         this.transactionCost = transactionCost;
+        this.walletId = walletId;
     }
 
     public WalletTransaction() {}

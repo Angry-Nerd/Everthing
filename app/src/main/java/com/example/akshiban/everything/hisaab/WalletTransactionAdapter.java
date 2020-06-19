@@ -10,7 +10,10 @@ import android.widget.TextView;
 
 import com.example.akshiban.everything.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 class WalletTransactionAdapter extends RecyclerView.Adapter<WalletTransactionAdapter.ViewHolder> {
 
@@ -25,16 +28,18 @@ class WalletTransactionAdapter extends RecyclerView.Adapter<WalletTransactionAda
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.transaction_view,viewGroup,false));
+        return new ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.transaction_view, viewGroup, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        WalletTransaction transaction = transactions.get(i);
         viewHolder.details.setText(transactions.get(i).getDescription());
-        viewHolder.closing_bal.setText("Closing Balance: "+transactions.get(i).getClosingBal());
-        viewHolder.opening_bal.setText("Opening Balance: "+transactions.get(i).getOpeningBal());
-        viewHolder.date.setText(""+transactions.get(i).getDate());
-        viewHolder.transactionCost.setText(transactions.get(i).getTransactionCost()+"");
+        viewHolder.closing_bal.setText("Closing Balance: " + transaction.getClosingBal());
+        viewHolder.opening_bal.setText("Opening Balance: " + transaction.getOpeningBal());
+        String date = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.ENGLISH).format(new Date(transaction.getDate()));
+        viewHolder.date.setText(date);
+        viewHolder.transactionCost.setText(transaction.getTransactionCost() + "");
     }
 
     @Override
@@ -42,8 +47,23 @@ class WalletTransactionAdapter extends RecyclerView.Adapter<WalletTransactionAda
         return transactions.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    public void removeItem(int position) {
+        transactions.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void restoreItem(WalletTransaction item, int position) {
+        transactions.add(position, item);
+        notifyItemInserted(position);
+    }
+
+    public List<WalletTransaction> getData() {
+        return transactions;
+    }
+
+    class ViewHolder extends RecyclerView.ViewHolder {
         TextView closing_bal, opening_bal, details, date, transactionCost;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             transactionCost = itemView.findViewById(R.id.transaction_cost);

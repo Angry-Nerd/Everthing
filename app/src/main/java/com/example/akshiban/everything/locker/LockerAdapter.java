@@ -119,7 +119,7 @@ class LockerAdapter extends RecyclerView.Adapter<LockerAdapter.ViewHolder> {
         return items.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         TextView dateCreated, nameOfItem;
         ImageButton downloadItem, deleteItem;
         CircleImageView circleImageView;

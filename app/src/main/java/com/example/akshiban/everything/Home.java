@@ -57,6 +57,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
 
         getUserDetails(view);
+
+
+        dochecks();
+    }
+
+    private void dochecks() {
+
+
+
+
     }
 
     @Override
@@ -96,6 +106,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     private void signOut() {
+        SharedPreferencesManager.getInstance(this).setLoginEmail(null);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();

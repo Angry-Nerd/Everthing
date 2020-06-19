@@ -5,6 +5,10 @@ class LockerItem {
     private String urlOfImage;
     private String typeOfFile;
 
+    private String id;
+    private long dateCreated;
+
+
     public String getTypeOfFile() {
         return typeOfFile;
     }
@@ -20,9 +24,6 @@ class LockerItem {
     public void setId(String id) {
         this.id = id;
     }
-
-    private String id;
-    private long dateCreated;
 
 
     public LockerItem(String nameOfItem, String urlOfImage, long dateCreated) {

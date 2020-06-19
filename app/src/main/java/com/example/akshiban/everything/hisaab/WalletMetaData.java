@@ -1,8 +1,13 @@
 package com.example.akshiban.everything.hisaab;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
+
+@Entity(tableName = "WalletMetaData")
 class WalletMetaData implements Parcelable {
     private String walletName;
     private int currentBalance;
@@ -35,6 +40,8 @@ class WalletMetaData implements Parcelable {
         this.initialBalance = initialBalance;
     }
 
+    @PrimaryKey
+    @NonNull
     private String id;
 
     public WalletMetaData(String walletName, int balance, int initialBalance) {
